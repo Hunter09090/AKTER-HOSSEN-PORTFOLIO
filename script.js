@@ -96,3 +96,140 @@ if (profileWrapper) {
     });
 
 }
+/* =========================================================
+   PREMIUM PAGE ENTRY + SCROLL REVEAL
+========================================================= */
+
+
+/* ---------------------------------------------------------
+   PAGE ENTRY ANIMATION
+--------------------------------------------------------- */
+
+window.addEventListener("load", () => {
+
+    const loader = document.getElementById("page-loader");
+
+    if (!loader) return;
+
+    setTimeout(() => {
+
+        loader.classList.add("loader-hidden");
+
+    }, 1700);
+
+});
+
+
+/* ---------------------------------------------------------
+   SCROLL REVEAL
+--------------------------------------------------------- */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const revealElements = [];
+
+
+    /* Main sections */
+
+    document
+        .querySelectorAll(
+            "section:not(#home), .contact-section, .site-footer"
+        )
+        .forEach((element) => {
+
+            element.setAttribute("data-reveal", "fade");
+
+            revealElements.push(element);
+
+        });
+
+
+    /* Section headings */
+
+    document
+        .querySelectorAll(
+            ".section-heading, .contact-intro, .contact-card"
+        )
+        .forEach((element) => {
+
+            element.setAttribute("data-reveal", "up");
+
+            revealElements.push(element);
+
+        });
+
+
+    /* Cards */
+
+    const cardSelectors = [
+        ".skill-card",
+        ".project-card",
+        ".achievement-card",
+        ".contact-item"
+    ];
+
+
+    cardSelectors.forEach((selector) => {
+
+        document
+            .querySelectorAll(selector)
+            .forEach((card, index) => {
+
+                card.setAttribute("data-reveal", "up");
+
+                const delay =
+                    (index % 6) + 1;
+
+                card.setAttribute(
+                    "data-reveal-delay",
+                    delay
+                );
+
+                revealElements.push(card);
+
+            });
+
+    });
+
+
+    /* -----------------------------------------------------
+       Intersection Observer
+    ----------------------------------------------------- */
+
+    const observer =
+        new IntersectionObserver(
+            (entries, observer) => {
+
+                entries.forEach((entry) => {
+
+                    if (!entry.isIntersecting) return;
+
+
+                    entry.target.classList.add(
+                        "revealed"
+                    );
+
+
+                    observer.unobserve(
+                        entry.target
+                    );
+
+                });
+
+            },
+            {
+                threshold: 0.12,
+
+                rootMargin:
+                    "0px 0px -60px 0px"
+            }
+        );
+
+
+    revealElements.forEach((element) => {
+
+        observer.observe(element);
+
+    });
+
+});
