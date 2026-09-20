@@ -2665,3 +2665,126 @@ footer {
         padding: 25px;
     }
 }
+/* =========================================================
+   ACHIEVEMENTS — DESKTOP WIDTH FIX
+   ========================================================= */
+
+@media (min-width: 851px) {
+
+    #achievements {
+        display: block !important;
+
+        width: 100vw !important;
+        max-width: 100vw !important;
+
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+
+        padding-left: 8% !important;
+        padding-right: 8% !important;
+
+        box-sizing: border-box !important;
+    }
+
+
+    /* Section Heading */
+
+    #achievements .section-heading {
+        display: block !important;
+
+        width: 100% !important;
+        max-width: 750px !important;
+
+        margin-left: auto !important;
+        margin-right: auto !important;
+
+        text-align: center;
+    }
+
+
+    /* Achievement Grid */
+
+    #achievements .achievement-grid {
+        display: grid !important;
+
+        width: 100% !important;
+        max-width: 1200px !important;
+
+        margin-left: auto !important;
+        margin-right: auto !important;
+
+        grid-template-columns:
+            minmax(0, 1fr)
+            minmax(0, 1fr) !important;
+
+        gap: 28px !important;
+
+        box-sizing: border-box !important;
+    }
+
+
+    /* Cards */
+
+    #achievements .achievement-card {
+        display: flex !important;
+
+        width: 100% !important;
+        min-width: 0 !important;
+
+        box-sizing: border-box !important;
+
+        padding: 32px !important;
+    }
+
+
+    /* Prevent text from becoming extremely narrow */
+
+    #achievements .achievement-content {
+        flex: 1 1 auto !important;
+
+        min-width: 0 !important;
+
+        width: auto !important;
+    }
+
+
+    #achievements .achievement-content h3 {
+        font-size: 23px !important;
+
+        line-height: 1.3 !important;
+
+        white-space: normal !important;
+
+        word-break: normal !important;
+
+        overflow-wrap: normal !important;
+    }
+
+
+    #achievements .achievement-content p {
+        font-size: 14px !important;
+
+        line-height: 1.8 !important;
+
+        white-space: normal !important;
+
+        word-break: normal !important;
+
+        overflow-wrap: break-word !important;
+    }
+
+
+    /* Certificate area */
+
+    #achievements .certificate-intro,
+    #achievements .certificate-placeholder {
+        width: 100% !important;
+
+        max-width: 900px !important;
+
+        margin-left: auto !important;
+        margin-right: auto !important;
+
+        box-sizing: border-box !important;
+    }
+}
