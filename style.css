@@ -3521,3 +3521,333 @@ footer {
         font-size: 13px;
     }
 }
+/* =========================================================
+   PREMIUM DESIGN SYSTEM
+   Deep Navy • Warm Gold • Ivory • Slate
+========================================================= */
+
+:root {
+    --premium-navy: #0b1220;
+    --premium-navy-2: #111c2f;
+
+    --premium-gold: #c9a96e;
+    --premium-gold-light: #e4cc9a;
+
+    --premium-ivory: #f8f6f1;
+    --premium-white: #ffffff;
+
+    --premium-slate: #64748b;
+    --premium-border: #e2e8f0;
+}
+
+
+/* =========================================================
+   PAGE ENTRY LOADER
+========================================================= */
+
+#page-loader {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 99999;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            #17243a 0%,
+            var(--premium-navy) 48%,
+            #070c15 100%
+        );
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transition:
+        opacity 0.8s ease,
+        visibility 0.8s ease;
+}
+
+
+#page-loader.loader-hidden {
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+}
+
+
+/* Loader Content */
+
+.loader-content {
+    width: min(420px, 80%);
+
+    text-align: center;
+
+    animation: loaderContentIn 1s ease forwards;
+}
+
+
+/* Logo */
+
+.loader-logo {
+    margin-bottom: 25px;
+
+    color: #ffffff;
+
+    font-size: clamp(42px, 8vw, 72px);
+
+    font-weight: 900;
+
+    letter-spacing: 5px;
+
+    line-height: 1;
+}
+
+.loader-logo span {
+    color: var(--premium-gold);
+}
+
+
+/* Gold Line */
+
+.loader-line {
+    width: 100%;
+
+    height: 1px;
+
+    margin: 0 auto 18px;
+
+    overflow: hidden;
+
+    background: rgba(255, 255, 255, 0.12);
+}
+
+
+.loader-line span {
+    display: block;
+
+    width: 0;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--premium-gold),
+            transparent
+        );
+
+    animation: loaderLine 1.8s ease-in-out forwards;
+}
+
+
+/* Loader Text */
+
+.loader-content p {
+    margin: 0;
+
+    color: #94a3b8;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    line-height: 1.8;
+}
+
+
+/* Loader Animations */
+
+@keyframes loaderContentIn {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(20px)
+            scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+@keyframes loaderLine {
+
+    0% {
+        width: 0;
+
+        transform: translateX(-100%);
+    }
+
+    50% {
+        width: 100%;
+
+        transform: translateX(0);
+    }
+
+    100% {
+        width: 100%;
+
+        transform: translateX(100%);
+    }
+}
+
+
+/* =========================================================
+   SCROLL REVEAL SYSTEM
+========================================================= */
+
+[data-reveal] {
+
+    opacity: 0;
+
+    transform:
+        translateY(45px);
+
+    transition:
+        opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+
+    will-change:
+        opacity,
+        transform;
+}
+
+
+[data-reveal].revealed {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+
+/* Different reveal directions */
+
+[data-reveal="left"] {
+
+    transform:
+        translateX(-50px);
+}
+
+
+[data-reveal="right"] {
+
+    transform:
+        translateX(50px);
+}
+
+
+[data-reveal="scale"] {
+
+    transform:
+        scale(0.92);
+}
+
+
+[data-reveal="fade"] {
+
+    transform:
+        none;
+}
+
+
+[data-reveal="left"].revealed,
+[data-reveal="right"].revealed,
+[data-reveal="scale"].revealed,
+[data-reveal="fade"].revealed {
+
+    transform:
+        none;
+}
+
+
+/* =========================================================
+   STAGGERED CARD REVEAL
+========================================================= */
+
+[data-reveal-delay="1"] {
+    transition-delay: 0.08s;
+}
+
+[data-reveal-delay="2"] {
+    transition-delay: 0.16s;
+}
+
+[data-reveal-delay="3"] {
+    transition-delay: 0.24s;
+}
+
+[data-reveal-delay="4"] {
+    transition-delay: 0.32s;
+}
+
+[data-reveal-delay="5"] {
+    transition-delay: 0.40s;
+}
+
+[data-reveal-delay="6"] {
+    transition-delay: 0.48s;
+}
+
+
+/* =========================================================
+   PREMIUM SECTION TRANSITION
+========================================================= */
+
+section {
+    position: relative;
+}
+
+
+/* =========================================================
+   PREMIUM BUTTON MICRO INTERACTION
+========================================================= */
+
+a,
+button {
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+
+        transition-duration: 0.01ms !important;
+    }
+
+    [data-reveal] {
+        opacity: 1 !important;
+
+        transform: none !important;
+    }
+   }
