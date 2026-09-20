@@ -3851,3 +3851,1108 @@ button {
         transform: none !important;
     }
    }
+/* =========================================================
+   =========================================================
+
+      AKTER HOSSEN — PREMIUM WEBSITE POLISH SYSTEM
+
+      Deep Navy • Warm Gold • Ivory • White • Slate
+
+   =========================================================
+   ========================================================= */
+
+
+/* =========================================================
+   01 — PREMIUM VARIABLES
+========================================================= */
+
+:root {
+
+    --premium-navy: #0b1220;
+    --premium-navy-2: #111c2f;
+    --premium-navy-3: #17243a;
+
+    --premium-gold: #c9a96e;
+    --premium-gold-light: #e4cc9a;
+
+    --premium-ivory: #f8f6f1;
+
+    --premium-white: #ffffff;
+
+    --premium-slate: #64748b;
+    --premium-slate-light: #94a3b8;
+
+    --premium-border: #e2e8f0;
+
+    --premium-shadow:
+        0 20px 60px rgba(15, 23, 42, 0.10);
+
+    --premium-radius: 22px;
+
+}
+
+
+/* =========================================================
+   02 — GLOBAL POLISH
+========================================================= */
+
+html {
+
+    scroll-behavior: smooth;
+
+    scroll-padding-top: 90px;
+
+}
+
+
+body {
+
+    overflow-x: hidden;
+
+}
+
+
+img {
+
+    max-width: 100%;
+
+    height: auto;
+
+}
+
+
+button,
+a {
+
+    -webkit-tap-highlight-color: transparent;
+
+}
+
+
+/* =========================================================
+   03 — PREMIUM PAGE LOADER
+========================================================= */
+
+#page-loader {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 99999;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 45%,
+            #17243a 0%,
+            var(--premium-navy) 48%,
+            #070c15 100%
+        );
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transition:
+
+        opacity 0.8s ease,
+
+        visibility 0.8s ease;
+
+}
+
+
+#page-loader.loader-hidden {
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+}
+
+
+.loader-content {
+
+    width: min(420px, 80%);
+
+    text-align: center;
+
+    animation:
+
+        loaderContentIn 1s ease forwards;
+
+}
+
+
+.loader-logo {
+
+    margin-bottom: 25px;
+
+    color: var(--premium-white);
+
+    font-size: clamp(42px, 8vw, 72px);
+
+    font-weight: 900;
+
+    letter-spacing: 5px;
+
+    line-height: 1;
+
+}
+
+
+.loader-logo span {
+
+    color: var(--premium-gold);
+
+}
+
+
+.loader-line {
+
+    width: 100%;
+
+    height: 1px;
+
+    margin-bottom: 18px;
+
+    overflow: hidden;
+
+    background:
+
+        rgba(255,255,255,0.12);
+
+}
+
+
+.loader-line span {
+
+    display: block;
+
+    width: 0;
+
+    height: 100%;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--premium-gold),
+            transparent
+        );
+
+    animation:
+
+        loaderLine 1.8s ease-in-out forwards;
+
+}
+
+
+.loader-content p {
+
+    margin: 0;
+
+    color: var(--premium-slate-light);
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    line-height: 1.8;
+
+}
+
+
+@keyframes loaderContentIn {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+
+            translateY(20px)
+            scale(0.97);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+
+@keyframes loaderLine {
+
+    0% {
+
+        width: 0;
+
+        transform: translateX(-100%);
+
+    }
+
+    50% {
+
+        width: 100%;
+
+        transform: translateX(0);
+
+    }
+
+    100% {
+
+        width: 100%;
+
+        transform: translateX(100%);
+
+    }
+
+}
+
+
+/* =========================================================
+   04 — SMART NAVBAR
+========================================================= */
+
+.navbar {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+    right: 0;
+
+    z-index: 5000;
+
+    width: 100%;
+
+    background:
+
+        rgba(255,255,255,0.88);
+
+    backdrop-filter:
+
+        blur(16px);
+
+    -webkit-backdrop-filter:
+
+        blur(16px);
+
+    border-bottom:
+
+        1px solid transparent;
+
+    transition:
+
+        padding 0.3s ease,
+
+        background 0.3s ease,
+
+        box-shadow 0.3s ease,
+
+        border-color 0.3s ease;
+
+}
+
+
+.navbar.scrolled {
+
+    background:
+
+        rgba(255,255,255,0.94);
+
+    border-bottom-color:
+
+        var(--premium-border);
+
+    box-shadow:
+
+        0 10px 35px rgba(15,23,42,0.08);
+
+}
+
+
+.nav-container {
+
+    max-width: 1280px;
+
+    min-height: 78px;
+
+    margin: auto;
+
+    padding:
+
+        0 6%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 30px;
+
+}
+
+
+.nav-logo {
+
+    color: var(--premium-navy);
+
+    font-size: 23px;
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+
+    text-decoration: none;
+
+}
+
+
+.nav-logo span {
+
+    color: var(--premium-gold);
+
+}
+
+
+.nav-menu {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 4px;
+
+}
+
+
+.nav-link {
+
+    position: relative;
+
+    padding:
+
+        10px 12px;
+
+    color: var(--premium-slate);
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+    transition:
+
+        color 0.25s ease;
+
+}
+
+
+.nav-link::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: 3px;
+
+    width: 0;
+
+    height: 2px;
+
+    background:
+
+        var(--premium-gold);
+
+    transform:
+
+        translateX(-50%);
+
+    transition:
+
+        width 0.3s ease;
+
+}
+
+
+.nav-link:hover,
+
+.nav-link.active {
+
+    color: var(--premium-navy);
+
+}
+
+
+.nav-link:hover::after,
+
+.nav-link.active::after {
+
+    width: 18px;
+
+}
+
+
+/* =========================================================
+   05 — MOBILE NAVIGATION
+========================================================= */
+
+.menu-toggle {
+
+    display: none;
+
+    width: 44px;
+
+    height: 44px;
+
+    padding: 10px;
+
+    border: 0;
+
+    background: transparent;
+
+    cursor: pointer;
+
+}
+
+
+.menu-toggle span {
+
+    display: block;
+
+    width: 23px;
+
+    height: 2px;
+
+    margin: 5px auto;
+
+    background: var(--premium-navy);
+
+    transition:
+
+        transform 0.3s ease,
+
+        opacity 0.3s ease;
+
+}
+
+
+.menu-toggle.open span:nth-child(1) {
+
+    transform:
+
+        translateY(7px)
+        rotate(45deg);
+
+}
+
+
+.menu-toggle.open span:nth-child(2) {
+
+    opacity: 0;
+
+}
+
+
+.menu-toggle.open span:nth-child(3) {
+
+    transform:
+
+        translateY(-7px)
+        rotate(-45deg);
+
+}
+
+
+/* =========================================================
+   06 — SCROLL REVEAL
+========================================================= */
+
+[data-reveal] {
+
+    opacity: 0;
+
+    transform:
+
+        translateY(45px);
+
+    transition:
+
+        opacity 0.8s cubic-bezier(0.22,1,0.36,1),
+
+        transform 0.8s cubic-bezier(0.22,1,0.36,1);
+
+    will-change:
+
+        opacity,
+        transform;
+
+}
+
+
+[data-reveal].revealed {
+
+    opacity: 1;
+
+    transform:
+
+        translateY(0);
+
+}
+
+
+[data-reveal="left"] {
+
+    transform:
+
+        translateX(-50px);
+
+}
+
+
+[data-reveal="right"] {
+
+    transform:
+
+        translateX(50px);
+
+}
+
+
+[data-reveal="scale"] {
+
+    transform:
+
+        scale(0.92);
+
+}
+
+
+[data-reveal="fade"] {
+
+    transform: none;
+
+}
+
+
+[data-reveal].revealed {
+
+    transform: none;
+
+}
+
+
+/* =========================================================
+   07 — STAGGER DELAYS
+========================================================= */
+
+[data-reveal-delay="1"] {
+
+    transition-delay: 0.08s;
+
+}
+
+[data-reveal-delay="2"] {
+
+    transition-delay: 0.16s;
+
+}
+
+[data-reveal-delay="3"] {
+
+    transition-delay: 0.24s;
+
+}
+
+[data-reveal-delay="4"] {
+
+    transition-delay: 0.32s;
+
+}
+
+[data-reveal-delay="5"] {
+
+    transition-delay: 0.40s;
+
+}
+
+[data-reveal-delay="6"] {
+
+    transition-delay: 0.48s;
+
+}
+
+
+/* =========================================================
+   08 — PREMIUM CARD INTERACTION
+========================================================= */
+
+.skill-card,
+.project-card,
+.achievement-card {
+
+    transition:
+
+        transform 0.35s cubic-bezier(0.22,1,0.36,1),
+
+        box-shadow 0.35s ease,
+
+        border-color 0.35s ease;
+
+}
+
+
+.skill-card:hover,
+.project-card:hover,
+.achievement-card:hover {
+
+    transform:
+
+        translateY(-7px);
+
+}
+
+
+/* =========================================================
+   09 — PROJECT IMAGE POLISH
+========================================================= */
+
+.project-image {
+
+    overflow: hidden;
+
+}
+
+
+.project-image img {
+
+    display: block;
+
+    width: 100%;
+
+    transition:
+
+        transform 0.7s cubic-bezier(0.22,1,0.36,1);
+
+}
+
+
+.project-card:hover .project-image img {
+
+    transform:
+
+        scale(1.05);
+
+}
+
+
+/* =========================================================
+   10 — PREMIUM BUTTON EFFECT
+========================================================= */
+
+button,
+.btn,
+.hero-btn,
+.contact-main-button,
+.contact-whatsapp-button {
+
+    transition:
+
+        transform 0.3s ease,
+
+        box-shadow 0.3s ease,
+
+        background 0.3s ease;
+
+}
+
+
+.btn:hover,
+.hero-btn:hover,
+.contact-main-button:hover,
+.contact-whatsapp-button:hover {
+
+    transform:
+
+        translateY(-3px);
+
+}
+
+
+/* =========================================================
+   11 — SOCIAL ICON MICRO INTERACTION
+========================================================= */
+
+.social-link,
+.footer-socials a {
+
+    transition:
+
+        transform 0.3s ease,
+
+        background 0.3s ease,
+
+        color 0.3s ease;
+
+}
+
+
+.social-link:hover,
+.footer-socials a:hover {
+
+    transform:
+
+        translateY(-4px);
+
+}
+
+
+/* =========================================================
+   12 — SCROLL TO TOP BUTTON
+========================================================= */
+
+#scroll-top {
+
+    position: fixed;
+
+    right: 25px;
+
+    bottom: 25px;
+
+    z-index: 4000;
+
+    width: 48px;
+
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border: 1px solid var(--premium-border);
+
+    border-radius: 50%;
+
+    background:
+
+        rgba(255,255,255,0.92);
+
+    color: var(--premium-navy);
+
+    box-shadow:
+
+        0 10px 30px rgba(15,23,42,0.12);
+
+    cursor: pointer;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform:
+
+        translateY(15px);
+
+    transition:
+
+        opacity 0.3s ease,
+
+        visibility 0.3s ease,
+
+        transform 0.3s ease,
+
+        background 0.3s ease;
+
+}
+
+
+#scroll-top.visible {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
+
+        translateY(0);
+
+}
+
+
+#scroll-top:hover {
+
+    background:
+
+        var(--premium-navy);
+
+    color:
+
+        var(--premium-white);
+
+    transform:
+
+        translateY(-4px);
+
+}
+
+
+/* =========================================================
+   13 — PREMIUM GOLD DETAILS
+========================================================= */
+
+.section-heading > span,
+.contact-label,
+.achievement-type,
+.skill-category {
+
+    color:
+
+        var(--premium-gold);
+
+}
+
+
+/* =========================================================
+   14 — FOCUS ACCESSIBILITY
+========================================================= */
+
+a:focus-visible,
+button:focus-visible {
+
+    outline:
+
+        2px solid var(--premium-gold);
+
+    outline-offset:
+
+        4px;
+
+}
+
+
+/* =========================================================
+   15 — MOBILE
+========================================================= */
+
+@media (max-width: 950px) {
+
+    .nav-container {
+
+        min-height: 70px;
+
+    }
+
+
+    .menu-toggle {
+
+        display: block;
+
+    }
+
+
+    .nav-menu {
+
+        position: absolute;
+
+        top: calc(100% + 1px);
+
+        left: 0;
+        right: 0;
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 0;
+
+        padding: 10px 6% 18px;
+
+        background:
+
+            rgba(255,255,255,0.97);
+
+        backdrop-filter:
+
+            blur(18px);
+
+        -webkit-backdrop-filter:
+
+            blur(18px);
+
+        border-bottom:
+
+            1px solid var(--premium-border);
+
+        box-shadow:
+
+            0 20px 40px rgba(15,23,42,0.08);
+
+        opacity: 0;
+
+        visibility: hidden;
+
+        transform:
+
+            translateY(-10px);
+
+        transition:
+
+            opacity 0.3s ease,
+
+            visibility 0.3s ease,
+
+            transform 0.3s ease;
+
+    }
+
+
+    .nav-menu.open {
+
+        opacity: 1;
+
+        visibility: visible;
+
+        transform:
+
+            translateY(0);
+
+    }
+
+
+    .nav-link {
+
+        padding:
+
+            14px 8px;
+
+        border-bottom:
+
+            1px solid #f1f5f9;
+
+    }
+
+
+    .nav-link:last-child {
+
+        border-bottom: 0;
+
+    }
+
+
+    .nav-link::after {
+
+        left: 8px;
+
+        bottom: 8px;
+
+        transform: none;
+
+    }
+
+
+    .nav-link:hover::after,
+
+    .nav-link.active::after {
+
+        width: 22px;
+
+    }
+
+}
+
+
+/* =========================================================
+   16 — SMALL MOBILE
+========================================================= */
+
+@media (max-width: 550px) {
+
+    #scroll-top {
+
+        right: 16px;
+
+        bottom: 16px;
+
+        width: 44px;
+
+        height: 44px;
+
+    }
+
+
+    .loader-content p {
+
+        font-size: 8px;
+
+        letter-spacing: 2px;
+
+    }
+
+}
+
+
+/* =========================================================
+   17 — REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+
+        scroll-behavior: auto;
+
+    }
+
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration: 0.01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        transition-duration: 0.01ms !important;
+
+    }
+
+
+    [data-reveal] {
+
+        opacity: 1 !important;
+
+        transform: none !important;
+
+    }
+
+}
