@@ -4956,3 +4956,552 @@ button:focus-visible {
     }
 
 }
+/* =========================================================
+   PREMIUM IVORY BACKGROUND & SECTION POLISH
+   AKTER HOSSEN PORTFOLIO
+   ========================================================= */
+
+/* ---------- Premium Color System ---------- */
+
+:root {
+    --premium-bg: #F5F2EA;
+    --premium-bg-soft: #EFECE4;
+    --premium-card: #FFFFFF;
+
+    --premium-navy: #0B1220;
+    --premium-navy-2: #111C2F;
+    --premium-navy-3: #17243A;
+
+    --premium-gold: #C9A96E;
+    --premium-gold-light: #E4CC9A;
+
+    --premium-text: #1E293B;
+    --premium-text-light: #64748B;
+
+    --premium-border: rgba(11, 18, 32, 0.09);
+
+    --premium-shadow:
+        0 15px 40px rgba(11, 18, 32, 0.07);
+
+    --premium-shadow-hover:
+        0 22px 55px rgba(11, 18, 32, 0.12);
+}
+
+
+/* ---------- Main Website Background ---------- */
+
+html {
+    background: var(--premium-bg);
+}
+
+body {
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(201, 169, 110, 0.07),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 90% 30%,
+            rgba(11, 18, 32, 0.035),
+            transparent 30%
+        ),
+        var(--premium-bg);
+
+    color: var(--premium-text);
+}
+
+
+/* ---------- Main Sections ---------- */
+
+section {
+    position: relative;
+    background: transparent;
+}
+
+
+/* ---------- Alternating Section Background ---------- */
+
+section:nth-of-type(even) {
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.32),
+            rgba(239, 236, 228, 0.45)
+        );
+}
+
+
+/* ---------- About Section ---------- */
+
+#about {
+    background:
+        radial-gradient(
+            circle at 85% 20%,
+            rgba(201, 169, 110, 0.08),
+            transparent 30%
+        ),
+        transparent;
+}
+
+
+/* ---------- Education Section ---------- */
+
+#education {
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.35),
+            rgba(245, 242, 234, 0.85)
+        );
+}
+
+
+/* ---------- Experience Section ---------- */
+
+#experience {
+    background:
+        radial-gradient(
+            circle at 15% 50%,
+            rgba(201, 169, 110, 0.06),
+            transparent 30%
+        ),
+        transparent;
+}
+
+
+/* ---------- Skills Section ---------- */
+
+#skills {
+    background:
+        linear-gradient(
+            180deg,
+            rgba(239, 236, 228, 0.5),
+            rgba(255, 255, 255, 0.3)
+        );
+}
+
+
+/* ---------- Projects Section ---------- */
+
+#projects {
+    background:
+        radial-gradient(
+            circle at 90% 15%,
+            rgba(201, 169, 110, 0.08),
+            transparent 28%
+        ),
+        linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.28),
+            rgba(245, 242, 234, 0.7)
+        );
+}
+
+
+/* ---------- Achievements Section ---------- */
+
+#achievements {
+    background:
+        linear-gradient(
+            180deg,
+            rgba(245, 242, 234, 0.7),
+            rgba(239, 236, 228, 0.55)
+        );
+}
+
+
+/* ---------- Contact Section ---------- */
+
+#contact {
+    background:
+        linear-gradient(
+            180deg,
+            rgba(239, 236, 228, 0.65),
+            rgba(245, 242, 234, 0.95)
+        );
+}
+
+
+/* =========================================================
+   PREMIUM CARDS
+   ========================================================= */
+
+.skill-card,
+.project-card,
+.achievement-card,
+.contact-card,
+.contact-item {
+    background: rgba(255, 255, 255, 0.88);
+
+    border: 1px solid var(--premium-border);
+
+    box-shadow: var(--premium-shadow);
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
+}
+
+
+/* Card Hover */
+
+.skill-card:hover,
+.project-card:hover,
+.achievement-card:hover,
+.contact-item:hover {
+    transform: translateY(-6px);
+
+    box-shadow: var(--premium-shadow-hover);
+
+    border-color:
+        rgba(201, 169, 110, 0.35);
+}
+
+
+/* ---------- Project Card ---------- */
+
+.project-card {
+    overflow: hidden;
+}
+
+
+/* ---------- Project Image ---------- */
+
+.project-image {
+    background: var(--premium-navy);
+}
+
+
+/* =========================================================
+   SECTION HEADINGS
+   ========================================================= */
+
+.section-heading h2 {
+    color: var(--premium-navy);
+}
+
+.section-heading p {
+    color: var(--premium-text-light);
+}
+
+
+/* Gold heading accent */
+
+.section-heading > span {
+    color: var(--premium-gold);
+}
+
+
+/* =========================================================
+   ABOUT / NORMAL TEXT
+   ========================================================= */
+
+.about-content,
+.education-content,
+.experience-content {
+    color: var(--premium-text);
+}
+
+.about-content p,
+.education-content p,
+.experience-content p {
+    color: var(--premium-text-light);
+}
+
+
+/* =========================================================
+   SKILLS
+   ========================================================= */
+
+.skill-card h3 {
+    color: var(--premium-navy);
+}
+
+.skill-card p {
+    color: var(--premium-text-light);
+}
+
+.skill-category {
+    color: var(--premium-gold);
+}
+
+
+/* =========================================================
+   PROJECTS
+   ========================================================= */
+
+.project-card h3 {
+    color: var(--premium-navy);
+}
+
+.project-card p {
+    color: var(--premium-text-light);
+}
+
+.project-category {
+    color: var(--premium-gold);
+}
+
+
+/* Technology Tags */
+
+.project-tags span {
+    background: rgba(11, 18, 32, 0.055);
+
+    color: var(--premium-navy);
+
+    border: 1px solid rgba(11, 18, 32, 0.08);
+}
+
+
+/* =========================================================
+   ACHIEVEMENTS
+   ========================================================= */
+
+.achievement-card h3 {
+    color: var(--premium-navy);
+}
+
+.achievement-card p {
+    color: var(--premium-text-light);
+}
+
+.achievement-type {
+    color: var(--premium-gold);
+}
+
+
+/* =========================================================
+   PREMIUM DIVIDERS
+   ========================================================= */
+
+section::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    bottom: 0;
+
+    width: min(1100px, 82%);
+
+    height: 1px;
+
+    transform: translateX(-50%);
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(201, 169, 110, 0.28),
+            transparent
+        );
+
+    pointer-events: none;
+}
+
+
+/* Don't show divider on final contact section */
+
+#contact::after {
+    display: none;
+}
+
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+
+.navbar {
+    background: rgba(255, 255, 255, 0.82);
+
+    border-bottom:
+        1px solid rgba(11, 18, 32, 0.06);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+}
+
+
+/* When scrolling */
+
+.navbar.scrolled {
+    background: rgba(255, 255, 255, 0.94);
+
+    box-shadow:
+        0 8px 30px rgba(11, 18, 32, 0.08);
+}
+
+
+/* =========================================================
+   NAV LOGO
+   ========================================================= */
+
+.nav-logo {
+    color: var(--premium-navy);
+}
+
+.nav-logo span {
+    color: var(--premium-gold);
+}
+
+
+/* =========================================================
+   NAV LINKS
+   ========================================================= */
+
+.nav-link {
+    color: var(--premium-text);
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--premium-gold);
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.btn-primary {
+    background: var(--premium-navy);
+    color: #FFFFFF;
+
+    box-shadow:
+        0 10px 25px rgba(11, 18, 32, 0.15);
+}
+
+.btn-primary:hover {
+    background: var(--premium-navy-2);
+
+    box-shadow:
+        0 15px 32px rgba(11, 18, 32, 0.2);
+}
+
+
+.btn-secondary {
+    background: transparent;
+
+    color: var(--premium-navy);
+
+    border:
+        1px solid rgba(11, 18, 32, 0.16);
+}
+
+.btn-secondary:hover {
+    background: var(--premium-navy);
+    color: #FFFFFF;
+}
+
+
+/* =========================================================
+   CONTACT
+   ========================================================= */
+
+.contact-label {
+    color: var(--premium-gold);
+}
+
+.contact-card h3,
+.contact-intro h2 {
+    color: var(--premium-navy);
+}
+
+.contact-card p,
+.contact-item p {
+    color: var(--premium-text-light);
+}
+
+
+/* =========================================================
+   SCROLL TO TOP
+   ========================================================= */
+
+#scroll-top {
+    background: var(--premium-navy);
+
+    color: var(--premium-gold);
+
+    border:
+        1px solid rgba(201, 169, 110, 0.35);
+
+    box-shadow:
+        0 12px 30px rgba(11, 18, 32, 0.18);
+}
+
+#scroll-top:hover {
+    background: var(--premium-gold);
+
+    color: var(--premium-navy);
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+    background: var(--premium-navy);
+    color: rgba(255, 255, 255, 0.8);
+}
+
+footer a {
+    color: var(--premium-gold-light);
+}
+
+footer a:hover {
+    color: #FFFFFF;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    body {
+        background:
+            radial-gradient(
+                circle at 50% 0%,
+                rgba(201, 169, 110, 0.06),
+                transparent 25%
+            ),
+            var(--premium-bg);
+    }
+
+    section:nth-of-type(even) {
+        background:
+            rgba(255, 255, 255, 0.22);
+    }
+
+    .skill-card,
+    .project-card,
+    .achievement-card,
+    .contact-card,
+    .contact-item {
+        box-shadow:
+            0 10px 28px rgba(11, 18, 32, 0.06);
+    }
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .skill-card,
+    .project-card,
+    .achievement-card,
+    .contact-item {
+        transition: none;
+    }
+}
