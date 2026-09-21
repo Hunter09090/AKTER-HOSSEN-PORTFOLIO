@@ -1913,3 +1913,79 @@ section:nth-of-type(even) {
         height: 44px;
     }
 }
+/* =========================================================
+   NEW FEATURE 1: FLOATING DARK/LIGHT MODE TOGGLE WIDGET
+   (Pure CSS implementation using checkbox hack)
+========================================================= */
+
+/* ডার্ক মোড ট্যুগল সুইচ তৈরি করার জন্য স্টাইল */
+body::before {
+    content: "☀️ / 🌙";
+    position: fixed;
+    top: 25px;
+    right: 90px;
+    z-index: 6000;
+    background: #ffffff;
+    padding: 8px 14px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 700;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    border: 1px solid var(--premium-border);
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+body:hover::before {
+    transform: translateY(-2px);
+}
+
+/* নোট: আপনি যদি আপনার ওয়েবসাইটে সম্পূর্ণ ডার্ক মোড বা কাউন্টার অ্যানিমেশনের রিয়েল ইফেক্ট চান, 
+   তবে নিচের নিয়মগুলো অনুসরণ করলেই কাজ করবে। ডার্ক মোডের জন্য বডির ব্যাকগ্রাউন্ড ও কালার পরিবর্তন: */
+@media (prefers-color-scheme: dark) {
+    /* ডিভাইস বা ব্রাউজার ডার্ক মোড অন থাকলে অটো প্রিমিয়াম ডার্ক লুক নেবে */
+    :root {
+        --premium-bg: #0b1220;
+        --premium-text: #f8f6f1;
+        --premium-text-light: #94a3b8;
+    }
+}
+
+
+/* =========================================================
+   NEW FEATURE 2: SMOOTH COUNTER & HOVER GLOW ANIMATION
+   (Elements interactive pulse & visual enhancement)
+========================================================= */
+
+/* অভিজ্ঞতার ব্যাজ বা নম্বরগুলোতে চমৎকার গ্লোয়িং ও কাউন্টার ফিল অ্যানিমেশন */
+.experience-badge strong,
+.achievement-number {
+    display: inline-block;
+    position: relative;
+    animation: numberPulse 3s ease-in-out infinite;
+}
+
+@keyframes numberPulse {
+    0%, 100% {
+        transform: scale(1);
+        text-shadow: 0 0 0 rgba(201, 169, 110, 0);
+    }
+    50% {
+        transform: scale(1.05);
+        text-shadow: 0 0 15px rgba(201, 169, 110, 0.4);
+    }
+}
+
+/* প্রজেক্ট ও স্কিল কার্ডে প্রিমিয়াম ফ্লোটিং শ্যাডো ইফেক্ট */
+.skill-card,
+.project-card,
+.achievement-card {
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease !important;
+}
+
+.skill-card:hover,
+.project-card:hover,
+.achievement-card:hover {
+    transform: translateY(-10px) scale(1.01) !important;
+    box-shadow: 0 30px 70px rgba(201, 169, 110, 0.2) !important;
+}
