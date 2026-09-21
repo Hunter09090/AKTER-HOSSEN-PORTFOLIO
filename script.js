@@ -257,3 +257,42 @@ window.addEventListener("load", () => {
         loader.classList.add("loader-hidden");
     }, 1700);
 });
+/* =========================================================
+   ABSOLUTE MOBILE MENU OVERRIDE STYLE
+========================================================= */
+@media (max-width: 950px) {
+    .nav-container {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        position: relative !important;
+    }
+
+    .menu-toggle {
+        display: flex !important;
+        margin-left: auto !important;
+        z-index: 99999 !important;
+        cursor: pointer !important;
+        position: relative !important;
+    }
+
+    .nav-menu {
+        display: none !important;
+        position: absolute !important;
+        top: calc(100% + 10px) !important;
+        right: 0 !important;
+        width: 260px !important;
+        background: #ffffff !important;
+        border: 1px solid rgba(11, 18, 32, 0.12) !important;
+        border-radius: 16px !important;
+        box-shadow: 0 25px 50px rgba(11, 18, 32, 0.2) !important;
+        padding: 16px !important;
+        flex-direction: column !important;
+        gap: 6px !important;
+        z-index: 99998 !important;
+    }
+
+    .nav-menu.open {
+        display: flex !important;
+    }
+           }
