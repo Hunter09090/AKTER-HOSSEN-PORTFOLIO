@@ -1,14 +1,12 @@
 /* =========================================================
-   AKTER HOSSEN PORTFOLIO
-   PREMIUM INTERACTION SYSTEM
+   AKTER HOSSEN PORTFOLIO — COMPLETE SCRIPT SYSTEM
 ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
 
     /* =====================================================
-       ELEMENTS
+       01 — ELEMENTS & VARIABLES
     ===================================================== */
-
     const navbar = document.getElementById("navbar");
     const menuToggle = document.getElementById("menu-toggle");
     const navMenu = document.getElementById("nav-menu");
@@ -19,24 +17,23 @@ document.addEventListener("DOMContentLoaded", () => {
     /* =====================================================
        02 — FOOTER YEAR
     ===================================================== */
-
     if (footerYear) {
         footerYear.textContent = new Date().getFullYear();
     }
 
 
     /* =====================================================
-       03 — MOBILE MENU
+       03 — MOBILE MENU BULLETPROOF TOGGLE
     ===================================================== */
-
     if (menuToggle && navMenu) {
-        menuToggle.addEventListener("click", () => {
+        menuToggle.addEventListener("click", (e) => {
+            e.stopPropagation();
             const isOpen = navMenu.classList.toggle("open");
             menuToggle.classList.toggle("open", isOpen);
             menuToggle.setAttribute("aria-expanded", isOpen);
         });
 
-        // Close menu after clicking a link
+        // Close menu after clicking a link inside mobile menu
         navMenu.querySelectorAll(".nav-link").forEach((link) => {
             link.addEventListener("click", () => {
                 navMenu.classList.remove("open");
@@ -44,20 +41,26 @@ document.addEventListener("DOMContentLoaded", () => {
                 menuToggle.setAttribute("aria-expanded", "false");
             });
         });
+
+        // Close menu when clicking outside
+        document.addEventListener("click", (e) => {
+            if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+                navMenu.classList.remove("open");
+                menuToggle.classList.remove("open");
+                menuToggle.setAttribute("aria-expanded", "false");
+            }
+        });
     }
 
 
     /* =====================================================
        04 — SMOOTH INTERNAL NAVIGATION
     ===================================================== */
-
     document.querySelectorAll('a[href^="#"]').forEach((link) => {
         link.addEventListener("click", (event) => {
             const targetId = link.getAttribute("href");
 
-            if (!targetId || targetId === "#") {
-                return;
-            }
+            if (!targetId || targetId === "#") return;
 
             const target = document.querySelector(targetId);
             if (!target) return;
@@ -75,9 +78,6 @@ document.addEventListener("DOMContentLoaded", () => {
     /* =====================================================
        05 — NAVBAR SCROLL EFFECT
     ===================================================== */
-
-    let lastScrollY = window.scrollY;
-
     function updateNavbar() {
         if (!navbar) return;
 
@@ -86,17 +86,14 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
             navbar.classList.remove("scrolled");
         }
-
-        lastScrollY = window.scrollY;
     }
 
     updateNavbar();
 
 
     /* =====================================================
-       06 — SCROLL TO TOP
+       06 — SCROLL TO TOP VISIBILITY
     ===================================================== */
-
     function updateScrollTop() {
         if (!scrollTop) return;
 
@@ -118,18 +115,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
-       07 — ACTIVE NAVIGATION SECTION
+       07 — ACTIVE NAVIGATION SECTION OBSERVER
     ===================================================== */
-
     const sections = document.querySelectorAll("section[id]");
     const navLinks = document.querySelectorAll(".nav-link");
 
     const sectionObserver = new IntersectionObserver(
         (entries) => {
             entries.forEach((entry) => {
-                if (!entry.isIntersecting) {
-                    return;
-                }
+                if (!entry.isIntersecting) return;
 
                 const currentId = entry.target.id;
 
@@ -153,7 +147,6 @@ document.addEventListener("DOMContentLoaded", () => {
     /* =====================================================
        08 — SCROLL REVEAL SYSTEM SETUP
     ===================================================== */
-
     const revealElements = [];
 
     document.querySelectorAll(".section-heading").forEach((element) => {
@@ -194,13 +187,10 @@ document.addEventListener("DOMContentLoaded", () => {
     /* =====================================================
        09 — INTERSECTION OBSERVER FOR REVEAL
     ===================================================== */
-
     const revealObserver = new IntersectionObserver(
         (entries, observer) => {
             entries.forEach((entry) => {
-                if (!entry.isIntersecting) {
-                    return;
-                }
+                if (!entry.isIntersecting) return;
 
                 entry.target.classList.add("revealed");
                 observer.unobserve(entry.target);
@@ -218,38 +208,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
-       10 — SCROLL EVENTS OPTIMIZATION
+       10 — OPTIMIZED SCROLL EVENT LISTENER
     ===================================================== */
-
     let ticking = false;
 
-    function handleScroll() {
-        if (ticking) return;
-
-        window.requestAnimationFrame(() => {
-            updateNavbar();
-            updateScrollTop();
-            ticking = false;
-        });
-
-        ticking = true;
-    }
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("scroll", () => {
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                updateNavbar();
+                updateScrollTop();
+                ticking = false;
+            });
+            ticking = true;
+        }
+    }, { passive: true });
 
 
     /* =====================================================
-       11 — EXTERNAL LINKS SECURITY
+       11 — EXTERNAL LINKS SECURITY & LAZY LOADING
     ===================================================== */
-
     document.querySelectorAll('a[target="_blank"]').forEach((link) => {
         link.setAttribute("rel", "noopener noreferrer");
     });
-
-
-    /* =====================================================
-       12 — IMAGE LAZY LOADING
-    ===================================================== */
 
     document.querySelectorAll("img").forEach((image) => {
         if (!image.hasAttribute("loading")) {
@@ -266,9 +246,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 /* =========================================================
-   13 — PAGE ENTRY ANIMATION
+   12 — PAGE ENTRY LOADER ANIMATION
 ========================================================= */
-
 window.addEventListener("load", () => {
     const loader = document.getElementById("page-loader");
 
@@ -277,32 +256,4 @@ window.addEventListener("load", () => {
     setTimeout(() => {
         loader.classList.add("loader-hidden");
     }, 1700);
-});
-/* =========================================================
-   EMERGENCY MOBILE MENU FIX (Paste at the end of script.js)
-========================================================= */
-document.addEventListener("DOMContentLoaded", () => {
-    const mobileToggle = document.getElementById("menu-toggle");
-    const mobileMenu = document.getElementById("nav-menu");
-
-    if (mobileToggle && mobileMenu) {
-        // পুরনো সব ইভেন্ট এড়াতে নতুন করে ক্লিক হ্যান্ডলার যুক্ত করা
-        mobileToggle.onclick = (e) => {
-            e.stopPropagation();
-            mobileMenu.classList.toggle("open");
-            mobileToggle.classList.toggle("open");
-            
-            const isExpanded = mobileToggle.getAttribute("aria-expanded") === "true";
-            mobileToggle.setAttribute("aria-expanded", !isExpanded);
-        };
-
-        // মেনুর বাইরে কোথাও ক্লিক করলে মেনু বন্ধ হয়ে যাবে
-        document.addEventListener("click", (e) => {
-            if (!mobileMenu.contains(e.target) && !mobileToggle.contains(e.target)) {
-                mobileMenu.classList.remove("open");
-                mobileToggle.classList.remove("open");
-                mobileToggle.setAttribute("aria-expanded", "false");
-            }
-        });
-    }
 });
