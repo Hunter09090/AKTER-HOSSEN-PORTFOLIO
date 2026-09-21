@@ -1950,3 +1950,40 @@ section:nth-of-type(even) {
         transform: translateY(0) scale(1) !important;
     }
 }
+/* =========================================================
+   MOBILE MENU FIX FOR CLICK & TOGGLE
+========================================================= */
+
+@media (max-width: 950px) {
+    /* ড্রপডাউন মেনু ডিফল্ট অবস্থায় সম্পূর্ণ লুকিয়ে থাকবে এবং ক্লিক ইভেন্ট পাবে */
+    .nav-menu {
+        display: none !important;
+        position: absolute !important;
+        top: calc(100% + 10px) !important;
+        right: 5% !important;
+        width: 250px !important;
+        background: #ffffff !important;
+        border: 1px solid rgba(11, 18, 32, 0.1) !important;
+        border-radius: 16px !important;
+        box-shadow: 0 20px 40px rgba(11, 18, 32, 0.15) !important;
+        padding: 15px !important;
+        flex-direction: column !important;
+        gap: 8px !important;
+        z-index: 9998 !important;
+    }
+
+    /* জাভাস্ক্রিপ্ট থেকে 'open' ক্লাস যোগ হলেই মেনু দৃশ্যমান হবে */
+    .nav-menu.open {
+        display: flex !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+
+    /* হ্যামবার্গার আইকন ক্লিক করার উপযোগী করা */
+    .menu-toggle {
+        display: flex !important;
+        cursor: pointer !important;
+        z-index: 9999 !important;
+        pointer-events: auto !important;
+    }
+}
