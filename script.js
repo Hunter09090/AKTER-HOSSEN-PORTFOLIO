@@ -278,3 +278,31 @@ window.addEventListener("load", () => {
         loader.classList.add("loader-hidden");
     }, 1700);
 });
+/* =========================================================
+   EMERGENCY MOBILE MENU FIX (Paste at the end of script.js)
+========================================================= */
+document.addEventListener("DOMContentLoaded", () => {
+    const mobileToggle = document.getElementById("menu-toggle");
+    const mobileMenu = document.getElementById("nav-menu");
+
+    if (mobileToggle && mobileMenu) {
+        // পুরনো সব ইভেন্ট এড়াতে নতুন করে ক্লিক হ্যান্ডলার যুক্ত করা
+        mobileToggle.onclick = (e) => {
+            e.stopPropagation();
+            mobileMenu.classList.toggle("open");
+            mobileToggle.classList.toggle("open");
+            
+            const isExpanded = mobileToggle.getAttribute("aria-expanded") === "true";
+            mobileToggle.setAttribute("aria-expanded", !isExpanded);
+        };
+
+        // মেনুর বাইরে কোথাও ক্লিক করলে মেনু বন্ধ হয়ে যাবে
+        document.addEventListener("click", (e) => {
+            if (!mobileMenu.contains(e.target) && !mobileToggle.contains(e.target)) {
+                mobileMenu.classList.remove("open");
+                mobileToggle.classList.remove("open");
+                mobileToggle.setAttribute("aria-expanded", "false");
+            }
+        });
+    }
+});
