@@ -21,6 +21,20 @@
     const reveal = $$("[data-reveal]");
     reveal.forEach((el, i) => el.style.setProperty("--delay", `${Math.min(i % 6, 5) * 70}ms`));
     if ("IntersectionObserver" in window && !matchMedia("(prefers-reduced-motion: reduce)").matches) { const observer = new IntersectionObserver((entries, obs) => entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add("revealed"); obs.unobserve(entry.target); } }), { threshold: .08, rootMargin: "0px 0px -35px" }); reveal.forEach(el => observer.observe(el)); } else reveal.forEach(el => el.classList.add("revealed"));
+
+    // Featured interactive project: Escape The Website
+    const projectGrid = $("#projects .projects-grid");
+    if (projectGrid && !$("[data-project='escape-the-website']")) {
+      const card = document.createElement("article");
+      card.className = "project surface";
+      card.dataset.reveal = "";
+      card.dataset.project = "escape-the-website";
+      card.innerHTML = `<div class="project-image" style="background:radial-gradient(circle at 50% 35%,#30376b,#080a13 72%);display:grid;place-items:center;min-height:220px"><div style="text-align:center;font-size:4rem;line-height:1">🧪<div style="font-size:.78rem;font-weight:800;letter-spacing:.14em;margin-top:10px;color:#5ee7ff">AKTER CRAZY LAB</div></div><a href="https://hunter09090.github.io/Akter-Sir-games/escape-the-website/" target="_blank" rel="noopener">Play live ↗</a></div><div class="project-body"><small>INTERACTIVE WEB GAME</small><h3>Escape The Website</h3><p>A browser escape-room game with timed puzzles, lives, hints, achievements, hidden secrets and multiple endings.</p><b>HTML · CSS · JavaScript · Game Logic</b></div>`;
+      projectGrid.appendChild(card);
+      card.style.setProperty("--delay", "120ms");
+      requestAnimationFrame(() => card.classList.add("revealed"));
+    }
+
     $("#footer-year")?.replaceChildren(String(new Date().getFullYear()));
     $$('a[target="_blank"]').forEach(a => a.rel = "noopener noreferrer");
     if (loader) { window.addEventListener("load", () => { loader.classList.add("hidden"); setTimeout(() => loader.remove(), 700); }, { once: true }); }
